@@ -1,0 +1,4 @@
+Filipe Alves;38011;38011@edu.ufp.pt;13/9/2017 15:30;100.0-120.0-0;BHU-
+Tiago Rodrigues;38099;38099@edu.ufp.pt;13/9/2018 19:20;125.0-300.0-0;BHA-
+Miguel Costa;38757;38757@edu.ufp.pt;24/9/2018 15:30;300.0-200.0-0;BHA-
+Cristiano Ronaldo;77777;cristiano@gmail.com;7/7/2007 7:7;100.0-120.0-0;BHU-

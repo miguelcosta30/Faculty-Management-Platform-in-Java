@@ -1,0 +1,13 @@
+0;Classroom 3;250.0;350.0; Indoor-0;Exit 2;210.0;110.0;Outdoor-10.0;5.0
+0;Exit 2;210.0;110.0;Outdoor-0;Classroom 1;100.0;100.0;Indoor-5.0;10.0
+0;Classroom 1;100.0;100.0;Indoor-0;Hall 0;250.0;100.0;Indoor-150.0;25.0
+0;Classroom 1;100.0;100.0;Indoor-0;Exit 1;100.0;150.0;Outdoor-10.0;10.0
+0;Exit 1;100.0;150.0;Outdoor-0;WC 0;115.0;200.0;Indoor-100.0;10.0
+0;Hall 0;250.0;100.0;Indoor-0;Classroom 2;500.0;100.0;Indoor-150.0;25.0
+0;Classroom 2;500.0;100.0;Indoor-0;CP 0;525.0;200.0;Indoor-275.0;40.0
+0;WC 0;115.0;200.0;Indoor-0;Exit 0;125.0;300.0;Outdoor-100.0;5.0
+0;WC 0;115.0;200.0;Indoor-0;Stairs 1;250.0;155.0;Indoor-5.0;2.0
+1;Stairs 2;200.0;400.0;Indoor-0;Stairs 1;250.0;155.0;Indoor-50.0;20.0
+0;Exit 0;125.0;300.0;Outdoor-0;CP 0;525.0;200.0;Indoor-5.0;20.0
+1;Stairs 2;200.0;400.0;Indoor-1;CP 3;300.0;200.0;Indoor-50.0;20.0
+2;Classroom 75;300.0;300.0;Indoor-1;Stairs 2;200.0;400.0;Indoor-5.0;20.0

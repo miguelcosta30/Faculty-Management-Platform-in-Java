@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="487.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane layoutY="28.0" prefHeight="524.0" prefWidth="915.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Building Map">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="900.0">
+                     <children>
+                        <VBox layoutY="-2.0" prefHeight="494.0" prefWidth="915.0" spacing="5.0">
+                           <children>
+                              <HBox prefHeight="0.0" prefWidth="924.0">
+                                 <children>
+                                    <Label prefHeight="16.0" prefWidth="125.0" text="Select Floor" />
+                                    <Label prefHeight="16.0" prefWidth="134.0" text="Select Place" />
+                                    <Label prefHeight="16.0" prefWidth="255.0" text="Student shortest Path From" />
+                                    <Label prefHeight="16.0" prefWidth="252.0" text="Teacher shortest Path From" />
+                                    <Label prefHeight="16.0" prefWidth="136.0" text="Destination Node" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="26.0" prefWidth="864.0">
+                                 <children>
+                                    <ComboBox fx:id="floorComboBox" onAction="#handleFloorChoiceAction" prefHeight="27.0" prefWidth="118.0" promptText="Floor" />
+                                    <ComboBox fx:id="placeComboBox" onAction="#handlePlaceChoiceAction" prefHeight="26.0" prefWidth="155.0" promptText="Place" />
+                                    <ComboBox fx:id="studentComboBox" onAction="#handleStudentChoiceAction" prefHeight="26.0" prefWidth="272.0" promptText="Students" />
+                                    <ComboBox fx:id="teacherComboBox" onAction="#handleTeacherComboBoxChoice" prefHeight="26.0" prefWidth="243.0" promptText="Teacher" />
+                                    <ComboBox fx:id="destinationNodeCombobox" onAction="#handleDestionationNodeChoice" prefHeight="26.0" prefWidth="148.0" promptText="Node" />
+                                 </children>
+                              </HBox>
+                              <Group fx:id="graphGroup" style="-fx-background-color: White;" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Manage University ">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane prefHeight="491.0" prefWidth="915.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Students">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="452.0" prefWidth="911.0">
+                                       <children>
+                                          <HBox layoutX="8.0" layoutY="405.0" prefHeight="53.0" prefWidth="900.0">
+                                             <children>
+                                                <TextField fx:id="studentNumberTextField" prefHeight="26.0" prefWidth="118.0" promptText="Number" translateY="10.0" />
+                                                <TextField fx:id="studentNameTextField" prefHeight="26.0" prefWidth="116.0" promptText="Name" translateY="10.0" />
+                                                <TextField fx:id="studentRegistrationTextField" prefHeight="26.0" prefWidth="139.0" promptText="Registration" translateY="10.0" />
+                                                <TextField fx:id="studentEmailTextField" prefHeight="26.0" prefWidth="106.0" promptText="Email" translateY="10.0" />
+                                                <TextField fx:id="studentGroupclassField" prefHeight="26.0" prefWidth="131.0" promptText="GroupClasses" translateY="10.0" />
+                                                <TextField fx:id="studentCordsTextField" prefHeight="26.0" prefWidth="103.0" promptText="Cords" translateY="10.0" />
+                                                <Button mnemonicParsing="false" onAction="#handleAddStudentAction" prefHeight="26.0" prefWidth="67.0" text="Add" translateX="20.0" translateY="10.0" />
+                                                <Button layoutX="705.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleRemoveStudentAction" prefHeight="26.0" prefWidth="75.0" text="Remove" translateX="40.0" translateY="10.0" />
+                                             </children>
+                                          </HBox>
+                                          <TableView fx:id="studentsTable" editable="true" layoutY="-2.0" prefHeight="401.0" prefWidth="915.0">
+                                            <columns>
+                                              <TableColumn fx:id="numberCol" onEditCommit="#handleChangeStudentNumberAction" prefWidth="70.0" text="Number" />
+                                              <TableColumn fx:id="nameCol" onEditCommit="#handleChangeStudentNameAction" prefWidth="94.0" text="Name" />
+                                                <TableColumn fx:id="registrationCol" prefWidth="143.0" text="Registration" />
+                                                <TableColumn fx:id="emailCol" onEditCommit="#handleChangeStudentEmailAction" prefWidth="133.0" text="Email" />
+                                                <TableColumn fx:id="groupClassColS" prefWidth="238.0" text="GroupClasses " />
+                                                <TableColumn fx:id="cordsTableS" prefWidth="111.0" text="Column X" />
+                                                <TableColumn fx:id="cordstableSy" prefWidth="125.0" text="Column Y" />
+                                            </columns>
+                                          </TableView>
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Teachers">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="teachersTable" editable="true" prefHeight="392.0" prefWidth="915.0">
+                                             <columns>
+                                                <TableColumn fx:id="usernameCol" onEditCommit="#handleChangeTeacherUsernameAction" prefWidth="124.0" text="Username" />
+                                                <TableColumn fx:id="nameColTeacher" onEditCommit="#handleChangeTeacherNameAction" prefWidth="160.0" text="Name" />
+                                                <TableColumn fx:id="emailColT" onEditCommit="#handleChangeTeacherEmailAction" prefWidth="114.0" text="Email" />
+                                                <TableColumn fx:id="groupClassT" prefWidth="389.0" text="GroupClasses " />
+                                             </columns>
+                                          </TableView>
+                                          <HBox layoutY="408.0" prefHeight="46.0" prefWidth="788.0">
+                                             <children>
+                                                <TextField fx:id="teacherUsernameFieldAdd" promptText="Username" translateY="10.0" />
+                                                <TextField fx:id="teacherNameFieldAdd" promptText="Name" translateY="10.0" />
+                                                <TextField fx:id="teacherEmailFieldAdd" promptText="Email" translateY="10.0" />
+                                                <TextField fx:id="teacherGroupClassFIeldAdd" promptText="GroupClass" translateY="10.0" />
+                                                <TextField fx:id="teacherCordsTextField" promptText="Cords" translateY="10.0" />
+                                                <Button mnemonicParsing="false" onAction="#handleAddTeacher" prefHeight="26.0" prefWidth="85.0" text="Add" translateX="20.0" translateY="10.0" />
+                                             </children>
+                                          </HBox>
+                                          <Button layoutX="826.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleRemoveTeacherAction" prefHeight="26.0" prefWidth="75.0" text="Remove" />
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="GroupClass">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="groupClassTable" editable="true" prefHeight="394.0" prefWidth="915.0">
+                                             <columns>
+                                                <TableColumn fx:id="nameColG" onEditCommit="#handleChangeGroupClassNameAction" prefWidth="91.0" text="Name" />
+                                                <TableColumn fx:id="disciplineCol" prefWidth="149.0" text="Discipline" />
+                                                <TableColumn fx:id="teacherCol" prefWidth="187.0" text="Teacher" />
+                                                <TableColumn fx:id="studentsCol" prefWidth="487.0" text="Students " />
+                                             </columns>
+                                          </TableView>
+                                          <HBox layoutX="8.0" layoutY="407.0" prefHeight="45.0" prefWidth="900.0">
+                                             <children>
+                                                <TextField fx:id="groupClassAddField" promptText="GroupClass Name" translateY="10.0" />
+                                                <TextField fx:id="groupClassDisciplineAddField" promptText="Discipline" translateY="10.0" />
+                                                <TextField fx:id="groupClassTeacherAddField" promptText="Teacher Username" translateY="10.0" />
+                                                <TextField fx:id="groupClassStudentsAddField" promptText="Students Numbers" translateY="10.0" />
+                                                <Button mnemonicParsing="false" onAction="#handleAddGroupClass" prefHeight="26.0" prefWidth="80.0" text="Add" translateX="17.0" translateY="9.0" />
+                                             </children>
+                                          </HBox>
+                                        </children></AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Classrooms">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="classroomsTable" editable="true" prefHeight="383.0" prefWidth="915.0">
+                                             <columns>
+                                                <TableColumn fx:id="numberColC" onEditCommit="#handleChangeClassroomNumberAction" prefWidth="165.0" text="Number" />
+                                                <TableColumn fx:id="socketsCol" onEditCommit="#handleChangeClassroomSocketsAction" prefWidth="221.0" text="Sockets" />
+                                                <TableColumn fx:id="floorCol" onEditCommit="#handleChangeClassroomFloorAction" prefWidth="528.0" text="Floor" />
+                                             </columns>
+                                          </TableView>
+                                          <HBox layoutX="60.0" layoutY="406.0" prefHeight="52.0" prefWidth="900.0">
+                                             <children>
+                                                <TextField fx:id="classroomNumberField" promptText="Number" translateY="10.0" />
+                                                <TextField fx:id="classroomSocketsField" promptText="Sockets" translateY="10.0" />
+                                                <TextField fx:id="classroomFloorField" promptText="Floor" translateY="10.0" />
+                                                <Button mnemonicParsing="false" onAction="#handleAddClassroom" prefHeight="26.0" prefWidth="67.0" text="Add" translateX="20.0" translateY="10.0" />
+                                                <Button layoutX="523.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleRemoveClassroomAction" prefHeight="26.0" prefWidth="82.0" text="Remove" translateX="50.0" translateY="10.0" />
+                                             </children>
+                                          </HBox>
+                                       </children></AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Disciplines">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="disciplinesTable" editable="true" prefHeight="386.0" prefWidth="915.0">
+                                             <columns>
+                                                <TableColumn fx:id="nameColD" onEditCommit="#handleChangeDisciplineName" prefWidth="450.0" text="Name" />
+                                                <TableColumn fx:id="groupClassCol" prefWidth="464.0" text="GroupClasses " />
+                                             </columns>
+                                          </TableView>
+                                          <HBox layoutY="399.0" prefHeight="52.0" prefWidth="915.0">
+                                             <children>
+                                                <TextField fx:id="disciplineNameFieldadd" prefHeight="26.0" prefWidth="364.0" promptText="Name" translateY="10.0" />
+                                                <TextField fx:id="groupclassDisciplineField" prefHeight="26.0" prefWidth="316.0" promptText="GroupClasses" translateY="10.0" />
+                                                <Button mnemonicParsing="false" onAction="#handleAddDisciplineAction" prefHeight="26.0" prefWidth="67.0" text="Add" translateX="20.0" translateY="10.0" />
+                                                <Button layoutX="523.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleRemoveDisciplineAction" prefHeight="26.0" prefWidth="82.0" text="Remove" translateX="50.0" translateY="10.0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Searches">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TabPane prefHeight="460.0" prefWidth="915.0" tabClosingPolicy="UNAVAILABLE">
+                                            <tabs>
+                                              <Tab text="Search Teachers GroupClass">
+                                                <content>
+                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="363.0" prefWidth="887.0">
+                                                         <children>
+                                                            <HBox prefHeight="65.0" prefWidth="900.0">
+                                                               <children>
+                                                                  <TextField fx:id="teacherUsernameField" prefHeight="41.0" prefWidth="751.0" promptText="Enter Teacher Username" translateX="10.0" translateY="10.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#handleSearchTeacherGroupClass" prefHeight="39.0" prefWidth="77.0" text="Search" translateX="50.0" translateY="10.0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TextArea fx:id="displayTeacherGroupClasses" editable="false" layoutX="11.0" layoutY="65.0" prefHeight="349.0" prefWidth="890.0" />
+                                                         </children></AnchorPane>
+                                                </content>
+                                              </Tab>
+                                                <Tab text="Search All Teachers From a Discipline">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <HBox prefHeight="65.0" prefWidth="915.0">
+                                                               <children>
+                                                                  <TextField fx:id="disciplineNameField" prefHeight="41.0" prefWidth="754.0" promptText="Enter Discipline Name" translateX="10.0" translateY="10.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#handleSearchAllTeachersDiscipline" prefHeight="39.0" prefWidth="77.0" text="Search" translateX="50.0" translateY="10.0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TextArea fx:id="displayDisciplinesTeacher" editable="false" layoutX="16.0" layoutY="65.0" prefHeight="346.0" prefWidth="885.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab text="Search Classroom By Sockets">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <HBox prefHeight="65.0" prefWidth="915.0">
+                                                               <children>
+                                                                  <TextField fx:id="classroomsNumberField" prefHeight="41.0" prefWidth="733.0" promptText="Enter Classroom Number" translateX="10.0" translateY="10.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#handleSearchClasrromBySockets" prefHeight="39.0" prefWidth="77.0" text="Search" translateX="50.0" translateY="10.0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TextArea fx:id="displayClassroomSockets" editable="false" layoutX="17.0" layoutY="65.0" prefHeight="344.0" prefWidth="885.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab text="Search Classroom By Ocupation">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <HBox prefHeight="65.0" prefWidth="915.0">
+                                                               <children>
+                                                                  <TextField fx:id="classroomsOcupationField" prefHeight="41.0" prefWidth="746.0" promptText="0 - Unoccupied 1 - Ocuppied" translateX="10.0" translateY="10.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#handleSearchClasrromByOcupation" prefHeight="39.0" prefWidth="77.0" text="Search" translateX="50.0" translateY="10.0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TextArea fx:id="displayClassroomOcupaion" editable="false" layoutX="17.0" layoutY="65.0" prefHeight="349.0" prefWidth="878.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab text="Search Classrooms Free Between Two Dates">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <HBox layoutY="7.0" prefHeight="100.0" prefWidth="909.0">
+                                                               <children>
+                                                                  <TextField fx:id="searchRoom2DatesTextField" prefHeight="52.0" prefWidth="748.0" promptText="DD/MM/AAAA HH:MM DD/MM/AAAA HH:MM" translateX="10.0" translateY="20.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#handleSearchRooms2Dates" prefHeight="43.0" prefWidth="83.0" text="Search" translateX="40.0" translateY="20.0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TextArea fx:id="displayRooms2Dates" layoutX="9.0" layoutY="89.0" prefHeight="329.0" prefWidth="892.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </Tab>
+                                                <Tab text="Search Classroom By Floor">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <HBox prefHeight="65.0" prefWidth="915.0">
+                                                               <children>
+                                                                  <TextField fx:id="classroomsFloorField1" prefHeight="41.0" prefWidth="753.0" promptText="Enter Classroom Floor" translateX="10.0" translateY="10.0" />
+                                                                  <Button mnemonicParsing="false" onAction="#handleSearchClasrromByFloor" prefHeight="39.0" prefWidth="77.0" text="Search" translateX="50.0" translateY="10.0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TextArea fx:id="displayClassroomFloor1" editable="false" layoutX="17.0" layoutY="65.0" prefHeight="340.0" prefWidth="881.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                            </tabs>
+                                          </TabPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Schedules">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="schedulesTable" layoutY="1.0" prefHeight="490.0" prefWidth="915.0">
+                          <columns>
+                              <TableColumn fx:id="dayofTheWeekCol" prefWidth="131.0" text="Day of the Week" />
+                            <TableColumn fx:id="startDateCol" prefWidth="143.0" text="Start Date" />
+                            <TableColumn fx:id="endDateCol" prefWidth="142.0" text="End Date" />
+                              <TableColumn fx:id="teacherColSchedule" prefWidth="148.0" text="Teacher" />
+                              <TableColumn fx:id="groupclassColSchedule" minWidth="0.0" prefWidth="179.0" text="Groupclass" />
+                              <TableColumn fx:id="classroomColSchedule" maxWidth="171.0" minWidth="-1.0" prefWidth="171.0" text="Classroom" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <MenuBar layoutY="3.0" prefHeight="29.0" prefWidth="915.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <Menu mnemonicParsing="false" text="Menu Open">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#handleOpenOnAction" text="Open Text File" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenBinOnAction" text="Open Bin File" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="MenuSave">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#handleSaveTXTAction" text="Save File Text" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveBinAction" text="Save File Bin" />
+                    </items>
+                  </Menu>
+              <MenuItem mnemonicParsing="false" onAction="#handleExitAction" text="Exit" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

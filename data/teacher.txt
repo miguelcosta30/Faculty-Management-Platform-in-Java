@@ -1,0 +1,4 @@
+José Torres;jtorres@edu.ufp.pt;jtorres_;120.0-200.0-1;BHZ-
+Ricardo Silva;ricsilv@edu.ufp.pt;ricsilv;121.0-450.0-0;BHB-BHU-BHX-
+Alessandro;afmiguez@edu.ufp.pt;afmiguez;120.0-200.0-1;BHU-
+Pedro Sobral;pedsob@edu.ufp.pt;pedsob;321.0-312.0-0;BHA-BHK-BHZ-
